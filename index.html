@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <script src="song-info.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Code -->
+    <script src="https://kit.fontawesome.com/07302300f3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <header>
+            <div class="logo">
+                <i class="fa-brands fa-napster"></i>
+                <span>SkyDive</span>
+            </div>
+        </header>
+        <ul class="navbar">
+            <a href="#no-link" class="animate-underline">
+                <i class="fa-solid fa-music"></i>
+                <span>All Songs</span>
+            </a>
+            <a href="#no-link" class="animate-underline">
+                <i class="fa-solid fa-compact-disc"></i>
+                <span>Playlists</span>
+            </a>
+        </ul>
+        <div class="nav-box">
+            <input type="checkbox" name="nav-box" id="navigation-toggle">
+            <div class="nav-box-line"></div>
+            <div class="nav-box-line"></div>
+            <div class="nav-box-line"></div>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <section id="all-songs">
+            <!-- <div class="song-item" data-audio="https://pwdown.info/113727/Munda%20Sona%20Hoon%20Main%20-%20Shehzada.mp3">
+                <div class="play-pause"><i class="fa-solid fa-play"></i></div>
+                <figure class="song-cover">
+                    <img src="./covers/cover-1.jpg" alt="song-id-1">
+                </figure>
+                <span class="song-name">Song Name</span>
+                <span class="song-time">05:39</span>
+            </div> -->
+        </section>
+
+        <section id="play-song">
+            <div class="song-info">
+                <figure class="song-cover">
+                    <img src="./covers/cover-1.jpg" alt="">
+                </figure>
+                <span class="song-name">Song Name</span>
+            </div>
+            <div class="song-controls">
+                <div class="song-play-line">
+                    <span id="song-initial-time">00:00</span>
+                    <input type="range" name="song-time" id="song-play-length" min="0" max="1" step="any" value="0">
+                    <span id="song-final-time">05:39</span>
+                </div>
+                <div class="song-control-button">
+                    <i class="fa-solid fa-backward" id="backward"></i>
+                    <i class="fa-regular fa-circle-play" id="main-play"></i>
+                    <i class="fa-solid fa-forward" id="forward"></i>
+                    <div class="volume-control">
+                        <i class="fa-solid fa-volume-low"></i>
+                        <input type="range" name="song-volume" id="song-volume-range" min="0" max="1" step="any"
+                            value="0.5">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>

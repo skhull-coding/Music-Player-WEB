@@ -1,0 +1,368 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: inherit;
+    transition: all 0.3s ease;
+    outline: none;
+    user-select: none;
+}
+
+
+/* Variables for Use */
+:root {
+    --primary: #2C3333;
+    --secondary: #395B64;
+    --tertiary: #A5C9CA;
+    --combo: #E7F6F2;
+    --combo2: #FF1E56;
+}
+
+/* Resetting the Font Size */
+html {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    /* min-height: 300vh; */
+    display: flex;
+    background: var(--combo);
+}
+
+/* Navigation Bar */
+nav {
+    background: var(--primary);
+    color: var(--tertiary);
+    height: calc(100vh - 6rem);
+    padding: 1.8rem 0 0;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 30;
+}
+
+nav>header {
+    padding: 0 1.5rem;
+    z-index: 2;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+nav .logo i {
+    font-size: 3.3rem;
+}
+
+nav .logo span {
+    font-size: 1.4rem;
+}
+
+.navbar.show {
+    left: 0;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--primary);
+}
+
+.navbar>a {
+    position: relative;
+    padding: 0.8rem 1.8rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.navbar>a>i {
+    font-size: 1.2rem;
+}
+
+.navbar>a>span {
+    font-size: 0.8rem;
+}
+
+.navbar>a:hover {
+    background: var(--secondary);
+    color: var(--combo);
+}
+
+nav>.nav-box {
+    width: 2rem;
+    height: 2rem;
+    display: none;
+    border-radius: 0.2rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 2;
+}
+
+nav>.nav-box input {
+    appearance: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Not using javascript for this . Instead using Pure CSS and HTML for the coll animation hamburger menu */
+/* Making the check state to show the navigation bar  */
+nav>.nav-box input:checked~.nav-box-line:first-of-type {
+    height: 0;
+}
+
+nav>.nav-box input:checked~.nav-box-line:nth-of-type(2),
+nav>.nav-box input:checked~.nav-box-line:nth-of-type(3) {
+    background-color: var(--combo2);
+}
+
+nav>.nav-box input:checked~.nav-box-line:nth-of-type(2) {
+    transform: rotate(45deg) translateY(0.2rem) translateX(0.2rem);
+}
+
+nav>.nav-box input:checked~.nav-box-line:nth-of-type(3) {
+    transform: rotate(-45deg) translateY(-0.2rem) translateX(0.2rem);
+}
+
+nav>.nav-box .nav-box-line:first-of-type {
+    background: var(--secondary);
+}
+
+nav>.nav-box .nav-box-line {
+    width: 100%;
+    height: 0.15rem;
+    background: var(--tertiary);
+    pointer-events: none;
+    border-radius: 1rem;
+}
+
+/* Main Content */
+#main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding-bottom: 6rem;
+}
+
+/* Song Content */
+#all-songs {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 0.8rem;
+    width: 100%;
+}
+
+
+/* Song Item */
+.song-item {
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    color: var(--combo);
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    align-items: center;
+    padding: 0.8rem 1.4rem;
+    border-radius: 0.2rem;
+}
+
+.song-item .play-pause i {
+    font-size: 1.07rem;
+    color: var(--tertiary);
+    cursor: pointer;
+}
+
+.song-item .song-cover img {
+    height: 100%;
+}
+
+.song-item .song-cover {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.song-item .song-name {
+    font-size: 1.07rem;
+    overflow-x: auto;
+    min-width: max-content;
+}
+
+.song-item .song-time {
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    nav {
+        position: static;
+        height: fit-content;
+        flex-direction: row;
+        padding: 1.2rem 1.2rem 1.2rem 0;
+    }
+
+    nav .logo {
+        gap: 0.4rem;
+    }
+
+    nav .logo i {
+        font-size: 2.3rem;
+    }
+
+    nav .logo span {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        gap: 0.4rem;
+        padding: 0.3rem 0;
+        position: absolute;
+        top: 4.7rem;
+        left: -100%;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .navbar>a>span {
+        margin-right: auto;
+        font-size: 0.8rem;
+    }
+
+    .navbar>a>i {
+        margin-left: auto;
+        font-size: 1rem;
+    }
+
+    nav>.nav-box {
+        display: flex;
+        margin-left: auto;
+    }
+}
+
+/* Song Control Bar */
+#main #play-song {
+    background: var(--primary);
+    padding: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: var(--combo);
+    gap: 1.8rem;
+    position: absolute;
+    height: 6rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-top: 0.2rem var(--combo) solid;
+}
+
+#play-song .song-cover {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#play-song .song-cover img {
+    width: 100%;
+}
+
+#play-song .song-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+#play-song i {
+    cursor: pointer;
+    font-size: 1.2rem !important;
+}
+
+#play-song .song-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 30%;
+    min-width: fit-content;
+    margin: 0 auto;
+}
+
+#play-song .song-controls .song-control-button {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#play-song .song-play-line {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+#play-song .volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+
+#play-song input[type='range'] {
+    appearance: none;
+    border-radius: 1rem;
+    background: var(--secondary);
+    height: 0.15rem;
+    vertical-align: middle;
+    width: 100%;
+}
+
+#play-song input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+    background-color: var(--tertiary);
+    border-radius: 50%;
+    width: 0.6rem;
+    height: 0.6rem;
+    cursor: grab;
+}
+
+#play-song .volume-control input[type='range'] {
+    width: 3rem;
+    display: none;
+}
